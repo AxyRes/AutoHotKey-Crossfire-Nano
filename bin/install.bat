@@ -47,13 +47,14 @@ echo It almost complete. But we need to check some thing more
 mkdir "%DestinationFolder%" 2>nul
 xcopy "%SourceFolder%" "%DestinationFolder%" /E /I /Y
 
-timeout /t 10 /nobreak > nul
+timeout /t 5 /nobreak > nul
 
 echo Checking Done. 
 
 echo Running AutoHotKey script as admin...
 call runScriptAHK.bat
 
+echo Install and Run Script Complete without error. It will go to the end
 echo Cleanup...
 del AutoHotkey.zip
 pause

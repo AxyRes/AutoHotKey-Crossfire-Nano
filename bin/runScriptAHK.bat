@@ -27,16 +27,32 @@ set /p choice=Enter your choice (1/2/3/4):
 
 if "%choice%"=="1" (
     start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkeyU64.exe" "%DestinationFolder%\%PressControlAHK%"
-    echo Increase Control have been done.
-    timeout /t 10 /nobreak > nul
-    goto end
+    timeout /t 3 /nobreak > nul
+    if %errorlevel%==0 (
+        echo Running script done. Kindly access to URL: https://keytest.vn to test
+        timeout /t 5 /nobreak > nul
+        goto end
+    ) else (
+        echo There was an error while running the script. Please check your AHK scripts and run the 'runScriptAHK.bat' again.
+        echo Exiting the script.
+        pause
+        exit /b 1
+    )
 )
 
 if "%choice%"=="2" (
     start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkeyU64.exe" "%DestinationFolder%\%Marco6Nong%"
-    echo Macro 6 Nong have been done.
-    timeout /t 10 /nobreak > nul
-    goto end
+    timeout /t 3 /nobreak > nul
+    if %errorlevel%==0 (
+        echo Running script done. Kindly access to URL: https://keytest.vn to test
+        timeout /t 5 /nobreak > nul
+        goto end
+    ) else (
+        echo There was an error while running the script. Please check your AHK scripts and run the 'runScriptAHK.bat' again.
+        echo Exiting the script.
+        pause
+        exit /b 1
+    )
 )
 
 if "%choice%"=="3" (
@@ -44,9 +60,17 @@ if "%choice%"=="3" (
         echo Install %%f
         start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkeyU64.exe" "%%f"
     )
-    echo All tool have been install.
-    timeout /t 10 /nobreak > nul
-    goto end
+    timeout /t 3 /nobreak > nul
+    if %errorlevel%==0 (
+        echo Running script done. Kindly access to URL: https://keytest.vn to test
+        timeout /t 5 /nobreak > nul
+        goto end
+    ) else (
+        echo There was an error while running the script. Please check your AHK scripts and run the 'runScriptAHK.bat' again.
+        echo Exiting the script.
+        pause
+        exit /b 1
+    )
 )
 
 if "%choice%"=="4" (
@@ -56,13 +80,3 @@ if "%choice%"=="4" (
 echo Invalid choice. Please try again.
 pause
 goto menu
-
-:end
-if %errorlevel%==0 (
-    echo Running script done. Kindly access to URL: https://keytest.vn to test
-) else (
-    echo There was an error while running the script. Please check your AHK scripts and run the 'runScriptAHK.bat' again.
-    echo Exiting the script.
-    pause
-    exit /b 1
-)
