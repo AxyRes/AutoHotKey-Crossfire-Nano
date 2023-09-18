@@ -1,4 +1,5 @@
 @echo off
+powershell -Command "Start-Process '%0' -Verb RunAs"
 set PressControlAHK=..\script\Duplicate_Control.ahk
 set Marco6Nong=..\script\Marco_6_nong.ahk
 
