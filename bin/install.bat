@@ -11,6 +11,7 @@ if %errorlevel%==0 (
     echo Connected to the internet.
 ) else (
     echo Not connected to the internet or unable to access %InstallerURL%.
+    echo Please try connect to internet to continue this steps
     echo Exiting the script.
     pause
     exit /b 1
@@ -43,7 +44,16 @@ if %errorlevel%==0 (
 timeout /t 10 /nobreak > nul
 
 echo Running AutoHotKey script as admin...
-start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkey64.exe" "%AHKScriptPath%"
+call runScriptAHK.bat
+
+if %errorlevel%==0 (
+    echo Running script done. Kindly access to url: https://keytest.vn to test
+) else (
+    echo Have something error to running. PLease check again script AHK and run script runScriptAHK.bat again.
+    echo Exiting the script.
+    pause
+    exit /b 1
+)
 
 echo Cleanup...
 del AutoHotkey.zip
