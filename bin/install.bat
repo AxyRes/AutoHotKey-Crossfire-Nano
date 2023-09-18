@@ -1,7 +1,8 @@
 @echo off
 set InstallerURL=https://www.autohotkey.com/download/ahk.zip
-set AHKScriptPath=..\script\Duplicate_Control.ahk
 set SevenZipPath="C:\Program Files\7-Zip\7z.exe"
+set "SourceFolder=..\script"
+set "DestinationFolder=%USERPROFILE%\Desktop\AutoHotkey\script"
 
 echo Checking internet connection...
 
@@ -41,7 +42,14 @@ if %errorlevel%==0 (
     exit /b 1
 )
 
+echo It almost complete. But we need to check some thing more
+
+mkdir "%DestinationFolder%" 2>nul
+xcopy "%SourceFolder%" "%DestinationFolder%" /E /I /Y
+
 timeout /t 10 /nobreak > nul
+
+echo Checking Done. 
 
 echo Running AutoHotKey script as admin...
 call runScriptAHK.bat

@@ -1,28 +1,38 @@
 @echo off
-powershell -Command "Start-Process '%0' -Verb RunAs"
-set PressControlAHK=..\script\Duplicate_Control.ahk
-set Marco6Nong=..\script\Marco_6_nong.ahk
+:: Check for administrator rights
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system" && (
+    echo Running with administrative privileges...
+    goto runscript
+) || (
+    echo Requesting administrative privileges...
+    :: Request administrative privileges and re-run this script
+    powershell -command "Start-Process '%0' -Verb RunAs"
+    exit /b 0
+)
+set PressControlAHK=Duplicate_Control.ahk
+set Marco6Nong=Marco_6_nong.ahk
+set "DestinationFolder=%USERPROFILE%\Desktop\AutoHotkey\script"
 
 :menu
 cls
 echo Options:
 echo 1. Increase Press Control
-echo 2. Macro 6 Nong Vip
+echo 2. Macro 6 Nong Vip (Beta)
 echo 3. Add all funtions
 echo 4. Exit
 
 set /p choice=Enter your choice (1/2/3/4): 
 
 if "%choice%"=="1" (
-    start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkeyU64.exe" "%PressControlAHK%"
+    start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkeyU64.exe" "%DestinationFolder%\%PressControlAHK%"
 )
 
 if "%choice%"=="2" (
-    start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkeyU64.exe" "%Marco6Nong%"
+    start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkeyU64.exe" "%DestinationFolder%\%Marco6Nong%"
 )
 
 if "%choice%"=="3" (
-    for %%f in (script\*.ahk) do (
+    for %%f in (%DestinationFolder%\*.ahk) do (
         start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkeyU64.exe" "%%f"
     )
 )
