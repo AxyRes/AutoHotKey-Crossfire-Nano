@@ -12,8 +12,6 @@ echo 4. Exit
 
 set /p choice=Enter your choice (1/2/3/4): 
 
-start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkeyU64.exe" "%PressControlAHK%"
-
 if "%choice%"=="1" (
     start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkeyU64.exe" "%PressControlAHK%"
 )
