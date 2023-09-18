@@ -1,6 +1,6 @@
 @echo off
 set PressControlAHK=..\script\Duplicate_Control.ahk
-set Marco6Nong=..\script\Marco_6_nong.shk
+set Marco6Nong=..\script\Marco_6_nong.ahk
 
 :menu
 cls
