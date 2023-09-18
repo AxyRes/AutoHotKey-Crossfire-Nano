@@ -5,7 +5,9 @@ This will increase the input amount when you press a control button. Better for 
 
 ## Usage
 
-Run the `install.bat` script in folder `bin`
+1. Run the `install.bat` script in folder `bin`
+2. Chose option to run funtions 
+3. Enjoys
 
 ## Script Details
 
