@@ -1,5 +1,5 @@
 @echo off
-set InstallerURL=https://www.autohotkey.com/download/2.0/AutoHotkey.zip
+set InstallerURL=https://www.autohotkey.com/download/ahk-v2.zip
 set AHKScriptPath=..\script\Duplicate_Control.ahk
 set SevenZipPath="C:\Program Files\7-Zip\7z.exe"
 
@@ -12,6 +12,7 @@ if %errorlevel%==0 (
 ) else (
     echo Not connected to the internet or unable to access %InstallerURL%.
     echo Exiting the script.
+    pause
     exit /b 1
 )
 
@@ -27,7 +28,7 @@ if exist %SevenZipPath% (
 )
 
 echo Installing AutoHotKey...
-powershell -Command "(New-Object Net.WebClient).DownloadFile('%InstallerURL%', 'AutoHotkey.zip')"
+curl -o AutoHotkey.zip -L %InstallerURL%
 %SevenZipPath% x AutoHotkey.zip -oAutoHotkey
 
 if %errorlevel%==0 (
@@ -35,13 +36,14 @@ if %errorlevel%==0 (
 ) else (
     echo Installation failed.
     echo Exiting the script.
+    pause
     exit /b 1
 )
 
 timeout /t 10 /nobreak > nul
 
 echo Running AutoHotKey script as admin...
-start "" "AutoHotkey\AutoHotkeyU64.exe" "%AHKScriptPath%"
+start "" "AutoHotkey\AutoHotkey64.exe" "%AHKScriptPath%"
 
 echo Cleanup...
 del AutoHotkey.zip
