@@ -29,7 +29,7 @@ if exist %SevenZipPath% (
 
 echo Installing AutoHotKey...
 curl -o AutoHotkey.zip -L %InstallerURL%
-%SevenZipPath% x AutoHotkey.zip -oAutoHotkey
+%SevenZipPath% x AutoHotkey.zip -o%USERPROFILE%\Desktop\AutoHotkey -y
 
 if %errorlevel%==0 (
     echo Installation Done.
@@ -43,7 +43,7 @@ if %errorlevel%==0 (
 timeout /t 10 /nobreak > nul
 
 echo Running AutoHotKey script as admin...
-start "" "AutoHotkey\AutoHotkey64.exe" "%AHKScriptPath%"
+start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkey64.exe" "%AHKScriptPath%"
 
 echo Cleanup...
 del AutoHotkey.zip
