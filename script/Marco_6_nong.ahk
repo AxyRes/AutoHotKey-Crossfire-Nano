@@ -1,14 +1,20 @@
-; Remap the forward mouse button to perform three left clicks with a sleep between each click
+; Beta. It can not working correctly
 XButton2::
-    Click Down  ;
-    Sleep 25  ;
-    Click Up  ;
-    Sleep 25  ;
-    Click Down  ;
-    Sleep 25  ;
-    Click Up  ;
-    Sleep 25  ;
-    Click Down  ;
-    Sleep 25  ;
-    Click Up  ;
+    while GetKeyState("XButton2", "P")  ; Check if XButton2 is being held down
+    {
+        Click Down  ; Simulate a left-click press
+        Sleep 25    ; Sleep for 25ms
+        Click Up    ; Simulate a left-click release
+        Sleep 25    ; Sleep for 25ms before the next set of left clicks
+
+        Click Down  ; Simulate a left-click press
+        Sleep 25    ; Sleep for 25ms
+        Click Up    ; Simulate a left-click release
+        Sleep 25    ; Sleep for 25ms before the next set of left clicks
+
+        Click Down  ; Simulate a left-click press
+        Sleep 25    ; Sleep for 25ms
+        Click Up    ; Simulate a left-click release
+        Sleep 25    ; Sleep for 25ms before the next set of left clicks
+    }
 return

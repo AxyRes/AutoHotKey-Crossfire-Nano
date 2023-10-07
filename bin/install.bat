@@ -46,6 +46,7 @@ echo It almost complete. But we need to check some thing more
 
 mkdir "%DestinationFolder%" 2>nul
 xcopy "%SourceFolder%" "%DestinationFolder%" /E /I /Y
+xcopy "runScriptAHK.bat" %USERPROFILE%\Desktop /E /I /Y
 
 timeout /t 5 /nobreak > nul
 

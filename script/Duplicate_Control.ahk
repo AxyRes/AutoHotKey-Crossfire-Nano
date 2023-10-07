@@ -1,5 +1,4 @@
-﻿; Double Ctrl Press
-Ctrl::
+﻿Ctrl::
 {
     Send, ^{Ctrl} ; Simulate double Ctrl press
     Sleep, 20 ; A small delay between presses

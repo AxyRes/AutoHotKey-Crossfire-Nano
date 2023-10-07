@@ -19,7 +19,7 @@ set "DestinationFolder=%USERPROFILE%\Desktop\AutoHotkey\script"
 cls
 echo Options:
 echo 1. Increase Press Control
-echo 2. Macro 6 Nong Vip
+echo 2. Macro 6 Nong Vip (Beta)
 echo 3. Add all functions
 echo 4. Exit
 
@@ -29,7 +29,7 @@ if "%choice%"=="1" (
     start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkeyU64.exe" "%DestinationFolder%\%PressControlAHK%"
     timeout /t 3 /nobreak > nul
     if %errorlevel%==0 (
-        echo Running script done. Kindly access to URL: https://keytest.vn to test
+        echo Running script %PressControlAHK% done. Kindly access to URL: https://keytest.vn to test
         timeout /t 5 /nobreak > nul
         goto end
     ) else (
@@ -44,7 +44,7 @@ if "%choice%"=="2" (
     start "" "%USERPROFILE%\Desktop\AutoHotkey\AutoHotkeyU64.exe" "%DestinationFolder%\%Marco6Nong%"
     timeout /t 3 /nobreak > nul
     if %errorlevel%==0 (
-        echo Running script done. Kindly access to URL: https://keytest.vn to test
+        echo Running script %Marco6Nong% done. Kindly access to URL: https://keytest.vn to test
         timeout /t 5 /nobreak > nul
         goto end
     ) else (
